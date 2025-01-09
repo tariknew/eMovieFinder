@@ -5,7 +5,7 @@ eMovieFinder is a comprehensive software solution developed as part of a seminar
 
 - **Desktop Applications**: Tailored for the administrators to manage things related to the movies.
 - **Mobile Application**: Designed for clients, clients can purchase movies, search for them, as well as leave reviews.
-- 
+
 ## Technologies Used
 
 - **Backend**: ASP.NET Core Web API with Entity Framework, both the API and the SQL database are containerized using Docker.
@@ -29,7 +29,7 @@ Ensure you have the following tools installed:
 The following environment variables are required:
 
 - **Backend:** ```JWT_SECRET_KEY```, ```SEND_GRID_API_KEY```
-- 
+  
 You can define these variables by:
 
 1. Editing a ```.env``` file in:
@@ -42,6 +42,7 @@ To start the API and other necessary services, navigate to the project's root fo
 
 ```bash
 docker-compose up --build
+```
 
 ### Credentials For Testing
 
