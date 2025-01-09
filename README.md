@@ -25,6 +25,10 @@ Ensure you have the following tools installed:
 
 ### Clone the Repository
 
+The following ZIP password for the fit-build-2025-01-08:
+
+- **Password:** ```fit```
+
 ### Environment variables
 
 The following environment variables are required:
@@ -45,6 +49,13 @@ To start the API and other necessary services, navigate to the project's root fo
 docker-compose up --build
 ```
 
+### Recommender system information
+
+When you open the mobile application login with following account in order to see list of list of recommended movies:
+
+- **Username:** ```tarikadmin```
+- **Password:** ```test```
+  
 ### Credentials For Testing
 
 #### Super administrator account
