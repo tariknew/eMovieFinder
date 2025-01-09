@@ -3,7 +3,7 @@ eMovieFinder is a comprehensive software solution developed as part of a seminar
 
 ## Features
 
-- **Desktop Applications**: Tailored for the administrators to manage things related to the movies.
+- **Desktop Application**: Tailored for the administrators to manage things related to the movies.
 - **Mobile Application**: Designed for clients, clients can purchase movies, search for them, as well as leave reviews.
 
 ## Technologies Used
