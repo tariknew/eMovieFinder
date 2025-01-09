@@ -20,7 +20,7 @@ Follow the steps below to set up and run the project.
 Ensure you have the following tools installed:
 - **Docker**: For containerizing the backend.
 - **Android Studio**: Recommended for editing and running the frontend (Flutter).
-- **Flutter**: To run the desktop and mobile applications.
+- **Flutter**: To run the desktop and mobile application.
 
 ### Clone the Repository
 
