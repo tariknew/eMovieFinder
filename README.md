@@ -9,7 +9,7 @@ eMovieFinder is a comprehensive software solution developed as part of a seminar
 ## Technologies Used
 
 - **Backend**: ASP.NET Core Web API with Entity Framework, both the API and the SQL database are containerized using Docker.
-- **Frontend**: Flutter (for both desktop and mobile applications).
+- **Frontend**: Flutter (for both desktop and mobile application).
 
 ## Getting Started
 
