@@ -51,7 +51,7 @@ docker-compose up --build
 
 ### Recommender system information
 
-When you open the mobile application, login with following account in order to see list of recommended movies:
+When you open the mobile application, login with following account in order to see the list of recommended movies:
 
 - **Username:** ```tarikadmin```
 - **Password:** ```test```
