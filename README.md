@@ -4,7 +4,7 @@ eMovieFinder is a comprehensive software solution developed as part of a seminar
 ## Features
 
 - **Desktop Application**: Tailored for the administrators to manage things related to the movies.
-- **Mobile Application**: Designed for clients, they can purchase movies, search for them, as well as leave reviews.
+- **Mobile Application**: Designed for the clients, they can purchase movies, search for them, as well as leave reviews.
 
 ## Technologies Used
 
@@ -21,6 +21,7 @@ Ensure you have the following tools installed:
 - **Docker**: For containerizing the backend.
 - **Android Studio**: Recommended for editing and running the frontend (Flutter).
 - **Flutter**: To run the desktop and mobile application.
+- **SQL Server Management Studio 20**: To run the database.
 
 ### Clone the Repository
 
