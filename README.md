@@ -55,6 +55,10 @@ When you open the mobile application, login with following account in order to s
 
 - **Username:** ```tarikadmin```
 - **Password:** ```test```
+
+### Warnings
+
+The docker compose up command can take a few minutes. if it's run on a slower machine, so have patience.
   
 ### Credentials For Testing
 
