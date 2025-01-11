@@ -25,7 +25,7 @@ Ensure you have the following tools installed:
 
 ### Clone the Repository
 
-The following ZIP password for the fit-build-2025-01-08:
+The following ZIP password for the fit-build-2025-01-11:
 
 - **Password:** ```fit```
 
