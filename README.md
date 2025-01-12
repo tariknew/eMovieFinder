@@ -49,6 +49,8 @@ To start the API and other necessary services, navigate to the project's root fo
 docker-compose up --build
 ```
 
+Note: Always use this command to run the project, no matter if project have been already built in docker.
+
 ### Recommender system information
 
 When you open the mobile application, login with following account in order to see the list of recommended movies:
