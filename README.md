@@ -41,6 +41,8 @@ You can define these variables by:
 
 - **Backend:** ```eMovieFinder/.env```
 
+```Note: Be careful what you edit in .env, you can change JWT_SECRET_KEY and SEND_GRID_API_KEY, the rest is at your own risk.```
+
 ### Running the Backend API
 
 To start the API and other necessary services, navigate to the project's root folder (```eMovieFinder/```) and run the following command:
