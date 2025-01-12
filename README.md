@@ -59,6 +59,13 @@ When you open the mobile application, login with following account in order to s
 ### Warnings
 
 The docker compose up command can take a few minutes. if it's running on a slower machine, so have patience.
+
+### Credentials For PayPal Sandbox 
+
+#### Sandbox account
+
+- Email: ```testtest23@personal.example.com```
+- Password: ```testtest```
   
 ### Credentials For Testing
 
