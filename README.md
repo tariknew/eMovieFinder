@@ -53,7 +53,8 @@ To start the API and other necessary services, navigate to the project's root fo
 docker-compose up --build
 ```
 
-Note: Always use this command to run the project, no matter if project have been already built in docker.
+```Note: Always use this command to run the project, no matter if project have been already built in docker.
+If you get error in docker: rabbitmq unhealthy or exited, run again the same command.```
 
 ### Recommender system information
 
