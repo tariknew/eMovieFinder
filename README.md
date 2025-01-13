@@ -54,7 +54,7 @@ docker-compose up --build
 ```
 
 ```Note: Always use this command to run the project, no matter if project have been already built in docker.```
-```If you get error in the docker: rabbitmq unhealthy or exited, run again the same command.```
+```If you get error in the docker: rabbitmq unhealthy or exited, close the command prompt and run again the same command.```
 
 ### Recommender system information
 
