@@ -1,0 +1,113 @@
+version: '3'
+services:
+  emoviefinder-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SQL_PASSWORD}
+      - MSSQL_PID=Developer
+    ports:
+      - ${SQL_PORT}:1433
+    expose:
+      - 1433
+    networks:
+      - emoviefinder
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "${SQL_PASSWORD}" -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  emoviefinder-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:eMovieFinderConnection=Server=emoviefinder-sql,1433;Database=${SQL_DATABASE};User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0; TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - SEND_GRID_API_KEY=${SEND_GRID_API_KEY}
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
+    ports:
+      - 5055:5055
+    networks:
+      - emoviefinder
+    links:
+      - emoviefinder-sql
+    depends_on:
+      emoviefinder-sql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - ./eMovieFinder.API/RecommenderModels:/app/RecommenderModels
+
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    hostname: rabbitmq
+    restart: unless-stopped
+    ports:
+      - 5672:5672  
+      - 8080:15672
+      - 15692:15692
+    expose:
+      - 5672
+      - 8080
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    networks:
+      - emoviefinder
+    volumes:
+      - ./docker_data/rabbitmq_data:/var/lib/rabbitmq
+      - ./docker_data/rabbitmq_logs:/var/log/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  emoviefinder-rabbitmqservice:
+    restart: unless-stopped
+    container_name: emoviefinder-rabbitmqservice
+    hostname: emoviefinder-rabbitmqservice
+    image: emoviefinder-rabbitmqservice:latest
+    build:
+      context: .
+      dockerfile: eMovieFinder.RabbitMQService/Dockerfile
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
+    networks:
+      - emoviefinder
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  emoviefinder-resetpasswordconsumer:
+    restart: unless-stopped
+    container_name: emoviefinder-resetpasswordconsumer
+    hostname: emoviefinder-resetpasswordconsumer
+    image: emoviefinder-resetpasswordconsumer:latest
+    build:
+      context: .
+      dockerfile: eMovieFinder.ResetPasswordConsumer/Dockerfile
+    environment:
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_USERNAME=${RABBITMQ_USERNAME}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
+      - SEND_GRID_API_KEY=${SEND_GRID_API_KEY}
+    networks:
+      - emoviefinder
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+networks:
+  emoviefinder:
+    driver: bridge
