@@ -27,7 +27,7 @@ Ensure you have the following tools installed:
 
 ```https://github.com/tariknew/eMovieFinder.git```
 
-The following ZIP password for the fit-build-2025-01-12:
+The following ZIP password for the fit-build-2025-01-13:
 
 - **Password:** ```fit```
 
