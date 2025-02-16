@@ -31,7 +31,7 @@ The following ZIP password for the fit-build-2025-02-01:
 
 - **Password:** ```fit```
 
-### Running the source-code
+### Running the Source Code
 
 - **Clean the project – Removes any cached or outdated files:** flutter clean
 - **Fetch dependencies – Installs all required packages:** flutter pub get
